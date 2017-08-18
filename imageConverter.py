@@ -3,13 +3,13 @@ import sys
 import tkinter
 im = Image.open(sys.argv[1]) #Can be many different formats.
 pix = im.load()
-if im.size == (128, 120):
+if __name__ == "__main__":
 	string = ""
 	x,y = 0,0
 
-	while y<120:
+	while y<360:
 		x = 0
-		while x<128:
+		while x<480:
 			rgb = str(pix[x,y][0])+","+str(pix[x,y][1])+","+str(pix[x,y][2])
 			string += ","+rgb
 			x += 1
@@ -24,6 +24,3 @@ if im.size == (128, 120):
 	alertText.pack(side=tkinter.LEFT)
 	alert.title("Banana Renderer 1.0.0 Image Code")
 	alert.mainloop()
-else:
-	error = "Size Wrong (Supposed To be 128x120px)"
-	print(error)
